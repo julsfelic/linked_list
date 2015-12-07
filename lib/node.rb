@@ -5,4 +5,8 @@ class Node
     @element = nil
     @link = nil
   end
+
+  def add_element(element)
+    @element = element
+  end
 end

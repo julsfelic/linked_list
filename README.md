@@ -57,13 +57,15 @@ within the List, all the different behaviors.
 
 6. Sketch an algorithm in pseudocode.
   1. Create a new List
-  2. Ask what its head is
-  3. Expect for it to return nothing
-  4. Create a new Node object
-  5. Check for its element
-  6. The element should return nothing
-  7. Check for its link
-  8. Its link should return nil
+  2. Create a two new Nodes
+  3. Put elements in the Node
+  4. Add Nodes to List
+  5. Check if head of List points to the first Node
+  6. Check if first nodes link points to the second node
+  6. Make sure link of second Node is still nil
+  7.
+  8.
+  9.
 
 7. Implement
 
