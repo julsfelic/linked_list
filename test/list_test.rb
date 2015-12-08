@@ -4,6 +4,7 @@ require 'pry'
 require 'node'
 
 class ListTest < Minitest::Test
+  # refactor tests!
   def setup
     @list = List.new
     @node = Node.new
@@ -12,6 +13,7 @@ class ListTest < Minitest::Test
     @node_1 = Node.new("Hi!")
     @node_2 = Node.new("Hello!")
     @node_3 = Node.new("Wassup!")
+    @node_4 = Node.new("Yo!")
   end
 
   def test_can_create_instance
@@ -58,5 +60,18 @@ class ListTest < Minitest::Test
     assert_equal @node_1, @node_3.link
     assert_equal @node_2, @node_1.link
     assert_nil   @node_2.link
+  end
+
+  def test_can_insert_a_node_at_a_position
+    @list.append(@node_1)
+    @list.append(@node_2)
+    @list.append(@node_3)
+
+    @list.insert(@node_4, 1)
+
+    assert_equal @node_4, @node_1.link
+    assert_equal @node_2, @node_4.link
+    assert_equal @node_3, @node_2.link
+    assert_nil   @node_3.link
   end
 end

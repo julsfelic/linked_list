@@ -16,10 +16,25 @@ class List
     end
   end
 
-  def prepend(node)
-    original_head_node = head
-    node.link = original_head_node
-    set_head_node(node)
+  def prepend(new_node, current_node=head, position=0, previous_node=nil)
+    new_node.link = current_node
+    previous_node.link = new_node unless previous_node.nil?
+    set_head_node(new_node) if position == 0
+  end
+
+  def insert(new_node, position)
+    go_to_position_of_node(new_node, position)
+  end
+
+  def go_to_position_of_node(new_node, position, current_position=0, current_node=head, previous_node=nil)
+    if current_position == position
+      prepend(new_node, current_node, current_position, previous_node)
+    else
+      current_position += 1
+      previous_node = current_node
+      current_node = current_node.link
+      go_to_position_of_node(new_node, position, current_position, current_node, previous_node)
+    end
   end
 
   def no_head_node?
