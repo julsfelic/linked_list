@@ -31,7 +31,7 @@ class NodeTest < Minitest::Test
   end
 
   def test_link_remains_nil_when_node_is_only_node_in_list
-    @list.add_node(@node)
+    @list.append(@node)
 
     assert_nil @node.link
   end
@@ -43,23 +43,23 @@ class NodeTest < Minitest::Test
   end
 
   def test_first_node_link_points_to_second_node
-    @list.add_node(@node_1)
-    @list.add_node(@node_2)
+    @list.append(@node_1)
+    @list.append(@node_2)
 
     assert_equal @node_2, @node_1.link
   end
 
   def test_second_node_remains_nill_when_linked_to_another_node
-    @list.add_node(@node_1)
-    @list.add_node(@node_2)
+    @list.append(@node_1)
+    @list.append(@node_2)
 
     assert_nil @node_2.link
   end
 
   def test_nodes_point_to_next_node_in_list
-    @list.add_node(@node_1)
-    @list.add_node(@node_2)
-    @list.add_node(@node_3)
+    @list.append(@node_1)
+    @list.append(@node_2)
+    @list.append(@node_3)
 
     assert_equal @node_2, @node_1.link
     assert_equal @node_3, @node_2.link
