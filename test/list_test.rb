@@ -62,6 +62,17 @@ class ListTest < Minitest::Test
     assert_nil   @node_2.link
   end
 
+  def test_can_insert_a_node_at_the_zero_position
+    @list.append(@node_1)
+    @list.append(@node_2)
+    @list.append(@node_3)
+
+    @list.insert(@node_4, 0)
+
+    assert_equal @node_1, @node_4.link
+    assert_equal @node_2, @node_1.link
+  end
+
   def test_can_insert_a_node_at_a_position
     @list.append(@node_1)
     @list.append(@node_2)
