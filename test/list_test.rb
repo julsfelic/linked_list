@@ -123,4 +123,12 @@ class ListTest < Minitest::Test
 
     assert_equal 3, @list.count
   end
+
+  def test_returns_the_head_value
+    @list.append(@node_1)
+
+    return_value = @list.head
+
+    assert_equal @node_1, return_value
+  end
 end
