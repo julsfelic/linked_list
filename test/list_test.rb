@@ -105,4 +105,22 @@ class ListTest < Minitest::Test
 
     assert_equal false, return_value
   end
+
+  def test_pops_a_node_from_the_end_of_a_list
+    @list.append(@node_1)
+    @list.append(@node_2)
+    @list.append(@node_3)
+
+    return_node = @list.pop
+
+    assert_equal @node_3, return_node
+  end
+
+  def test_counts_the_number_of_nodes_in_a_list
+    @list.append(@node_1)
+    @list.append(@node_2)
+    @list.append(@node_3)
+
+    assert_equal 3, @list.count
+  end
 end

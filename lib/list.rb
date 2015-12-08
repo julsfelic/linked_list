@@ -31,6 +31,37 @@ class List
     has_node_element?(element, node)
   end
 
+  def pop
+    remove_last_node
+  end
+
+  def count
+    count_nodes(head)
+  end
+
+  def count_nodes(node, count=1)
+    return 0 if no_head_node?
+    if node_link_is_nil?(node)
+      count
+    else
+      count += 1
+      count_nodes(node.link, count)
+    end
+  end
+
+  def remove_last_node(current_node = head, previous_node=nil)
+    if node_link_is_nil?(current_node)
+      previous_node.link == nil unless node_is_nil?(previous_node)
+      current_node
+    else
+      remove_last_node(current_node.link, current_node)
+    end
+  end
+
+  def node_link_is_nil?(node)
+    node.link == nil
+  end
+
   def has_node_element?(element, node)
     return false if node_is_nil?(node)
     if node.element == element
