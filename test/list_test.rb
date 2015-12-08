@@ -124,6 +124,7 @@ class ListTest < Minitest::Test
     assert_equal 3, @list.count
   end
 
+  # is this suppose to return the node or value??
   def test_returns_the_head_value
     @list.append(@node_1)
 
