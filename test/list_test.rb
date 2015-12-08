@@ -85,4 +85,24 @@ class ListTest < Minitest::Test
     assert_equal @node_3, @node_2.link
     assert_nil   @node_3.link
   end
+
+  def test_returns_true_if_a_element_exist_in_the_list
+    @list.append(@node_1)
+    @list.append(@node_2)
+    @list.append(@node_3)
+
+    return_value = @list.include?("Hello!")
+
+    assert_equal true, return_value
+  end
+
+  def test_returns_false_if_a_element_does_not_exist_in_the_list
+    @list.append(@node_1)
+    @list.append(@node_2)
+    @list.append(@node_3)
+
+    return_value = @list.include?("HiHiHiHi")
+
+    assert_equal false, return_value
+  end
 end

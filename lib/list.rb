@@ -26,6 +26,25 @@ class List
     go_to_position_of_node(new_node, position)
   end
 
+  def include?(element)
+    node = head
+    has_node_element?(element, node)
+  end
+
+  def has_node_element?(element, node)
+    return false if node_is_nil?(node)
+    if node.element == element
+      true
+    else
+      next_node = node.link
+      has_node_element?(element, next_node)
+    end
+  end
+
+  def node_is_nil?(node)
+    node.nil?
+  end
+
   def go_to_position_of_node(new_node, position, current_position=0, current_node=head, previous_node=nil)
     if current_position == position
       prepend(new_node, current_node, current_position, previous_node)
