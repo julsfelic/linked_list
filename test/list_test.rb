@@ -11,6 +11,7 @@ class ListTest < Minitest::Test
     # context for minitest
     @node_1 = Node.new("Hi!")
     @node_2 = Node.new("Hello!")
+    @node_3 = Node.new("Wassup!")
   end
 
   def test_can_create_instance
@@ -21,7 +22,7 @@ class ListTest < Minitest::Test
     assert_nil @list.head
   end
 
-  def test_can_add_a_node_to_an_empty_list
+  def test_can_append_a_node_to_an_empty_list
     assert @list.append(@node)
   end
 
@@ -37,5 +38,25 @@ class ListTest < Minitest::Test
     @list.append(@node_2)
 
     assert_equal @node_1, @list.head
+  end
+
+  def test_can_prepend_a_node
+    @list.append(@node_1)
+    @list.prepend(@node_2)
+
+    assert_equal @node_2, @list.head
+    assert_equal @node_1, @node_2.link
+    assert_nil   @node_1.link
+  end
+
+  def test_can_prepend_a_node_with_multiple_nodes
+    @list.append(@node_1)
+    @list.append(@node_2)
+    @list.prepend(@node_3)
+
+    assert_equal @node_3, @list.head
+    assert_equal @node_1, @node_3.link
+    assert_equal @node_2, @node_1.link
+    assert_nil   @node_2.link
   end
 end

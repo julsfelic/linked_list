@@ -16,6 +16,12 @@ class List
     end
   end
 
+  def prepend(node)
+    original_head_node = head
+    node.link = original_head_node
+    set_head_node(node)
+  end
+
   def no_head_node?
     head.nil?
   end
