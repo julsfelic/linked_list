@@ -35,7 +35,7 @@ link.
 
 4. What's the minimum work case?
 * The minimum work case is we create a List object that can take in one Node
-object. From there we can look at the head of the node, which should be the
+object. From there we can look at the head of the List, which should be the
 one Node object that we inserted. From there we should be able to get to the one
 Node object and see what its element is and that it should be the tail and its
 link should nil.
@@ -57,12 +57,13 @@ within the List, all the different behaviors.
 
 6. Sketch an algorithm in pseudocode.
   1. Create a new List
-  2. Create a two new Nodes
+  2. Create 3 (multiple) new Nodes
   3. Put elements in the Node
   4. Add Nodes to List
   5. Check if head of List points to the first Node
   6. Check if first nodes link points to the second node
-  6. Make sure link of second Node is still nil
+  7. Check if second node link points to the thrid node
+  7. Make sure link of third Node is still nil
   7.
   8.
   9.

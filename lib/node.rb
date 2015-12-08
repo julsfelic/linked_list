@@ -1,12 +1,9 @@
 class Node
+  attr_accessor :link
   attr_reader :element, :link
 
-  def initialize
-    @element = nil
-    @link = nil
-  end
-
-  def add_element(element)
+  def initialize(element = nil)
     @element = element
+    @link = nil
   end
 end
